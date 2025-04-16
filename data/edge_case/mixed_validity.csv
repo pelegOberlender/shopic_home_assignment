@@ -1,0 +1,6 @@
+id,name,price,category,stock
+1,Laptop,999.99,Electronics,50
+2,,89.99,Electronics,100
+3,Mouse,29.99,Electronics,200
+4,Monitor,58,Electronics,230
+5,Keyboard,-300,Electronics,250
