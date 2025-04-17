@@ -29,6 +29,16 @@ It features an end-to-end testing framework built with **Python** and **Playwrig
       pip install -r requirements.txt
       ```
   ---
+---
+
+## Path Handling
+
+This project uses a utility function `find_project_root()` to dynamically locate the project root directory.  
+This ensures that all file paths (e.g., test CSV files, expected results) are resolved consistently, regardless of where or how the tests are executed.
+
+This approach removes the need for hardcoded paths and makes the test suite portable across machines and environments.
+
+> Make sure you're running tests from the project root so that path resolution works correctly.
 
 ##  Running the Tests
   
@@ -52,30 +62,32 @@ It features an end-to-end testing framework built with **Python** and **Playwrig
 ##  Project Structure
   
 ```plaintext
-   home_assignment/
-  │
-  ├── data/                     
-  │
-  ├── server/                  
-  │   ├── main.py               
-  │   └── ...                   
-  │
-  ├── tests/                    # Automated UI test suite using Playwright + Pytest
-  │   ├── web_tests/            # Main directory for test cases
-  │   │   ├── edge_cases_tests.py        # Tests for edge-case CSV inputs (e.g., empty fields, incorrect types)
-  │   │   ├── valid_invalid_tests.py     # Tests for validating both valid and invalid product uploads
-  │   │   └── conftest.py                # Shared fixtures (e.g., browser setup, base URL)
-  │   │
-  │   ├── pages/               # Page Object Models (POM)
-  │   │   └── main_page.py     # UI element selectors and page interaction logic
-  │   │
-  │   └── utils/               # Validation utilities for test assertions
-  │       └── validator.py     # Custom class to assert actual vs. expected upload results
-  │
-  ├── requirements.txt         # Python dependencies
-  └── README.md                
+ home_assignment/
+│
+├── data/                     
+│
+├── server/                  
+│   ├── main.py               
+│   └── ...                   
+│
+├── tests/                    
+│   ├── web_tests/            # Main directory for test cases
+│   │   ├── edge_cases_tests.py        # Tests for edge-case CSV inputs (e.g., empty fields, incorrect types)
+│   │   ├── valid_invalid_tests.py     # Tests for validating both valid and invalid product uploads
+│   │   └── conftest.py                # Shared fixtures (e.g., browser setup, base URL)
+│   │
+│   ├── pages/               # Page Object Models (POM)
+│   │   └── main_page.py     # UI element selectors and page interaction logic
+│   │
+│   └── utils/               # Validation + path utilities
+│       ├── validator.py     # Custom class to assert actual vs. expected upload results
+│       └── path_utils.py    # Utility to dynamically find the project root for reliable path resolution
+│
+├── requirements.txt         
+└── README.md                
+            
 ```
-    ---
+---]
 
 ##  Assumptions
 

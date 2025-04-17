@@ -25,6 +25,7 @@ class Validator:
                 ValueError: If the file is not valid JSON or the expected key is missing.
         """
         self.actual = actual_result
+        expected_file_path = Path(expected_file_path)
 
         try:
             all_expected = json.loads(expected_file_path.read_text())
