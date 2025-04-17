@@ -14,7 +14,7 @@ It features an end-to-end testing framework built with **Python** and **Playwrig
 
    ```bash
    git clone <repo-url>
-   cd home_assignment
+   cd shopic_home_assignment
    ```
 
    2. **Create and activate a virtual environment**
