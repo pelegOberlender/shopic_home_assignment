@@ -24,7 +24,7 @@ def test_upload(file_path, expected_key, web_user):
     """
         Uploads a file and validates the result against expected JSON data.
     """
-    file_path = os.path.realpath(file_path)
+    file_path = Path(file_path).resolve()
     _logger.info("Running test for file: %s", file_path)
     result = web_user.choose_specific_file(file_path).click_upload().get_upload_result()
     _logger.info("Parsed result: %s", result)
